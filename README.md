@@ -1,7 +1,6 @@
-"# marketplace_main2" 
+# Nombre del poryecto Markeplace
 
-# Django Forms
-
+# SignUp y Login en Forms.py
 ```python
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -12,14 +11,14 @@ from .models import Item
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': 'Tu username',
+            'placeholder': 'Tu usuario',
             'class': 'form-control'
         }
     ))
 
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={
-            'placeholder': 'Tu password',
+            'placeholder': 'password',
             'class': 'form-control'
         }
     ))
@@ -27,11 +26,11 @@ class LoginForm(AuthenticationForm):
 class SignupForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2' ]
+        fields = ('username', 'email', 'password1', 'password2')
 
     username = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': 'Tu Username',
+            'placeholder': 'Tu Usuario',
             'class': 'form-control'
         }
     ))
@@ -52,20 +51,20 @@ class SignupForm(UserCreationForm):
 
     password2 = forms.CharField(widget=forms.PasswordInput(
         attrs={
-            'placeholder': 'Repite Tu Password',
+            'placeholder': 'Repite Password',
             'class': 'form-control'
         }
     ))
-```
+``` 
 
-# Registro de usuarios en views.py
+# Funciones en views.py
 ```python
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import logout
+
 from .models import Item, Category
 
 from .forms import SignupForm
- 
 
 # Create your views here.
 def home(request):
@@ -87,9 +86,7 @@ def contact(request):
 
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
-    related_items = Item.objects.filter(category=item.category, 
-                                        is_sold=False).exclude(pk=pk)[0:3]
-
+    related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(pk=pk)[0:3]
     context={
         'item': item,
         'related_items': related_items
@@ -106,7 +103,7 @@ def register(request):
             return redirect('login')
     else:
         form = SignupForm()
-    
+
     context = {
         'form': form
     }
@@ -114,49 +111,63 @@ def register(request):
     return render(request, 'store/signup.html', context)
 ```
 
-# Templates de login y signup
+# Login, Register urls.py
+```python
+from django.urls import path
+from django.contrib.auth import views as auth_views
+from .views import contact, detail, register
+
+from .forms import LoginForm
+
+urlpatterns = [
+    path('contact/', contact, name='contact'),
+    path('register/', register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='store/login.html', authentication_form=LoginForm)),
+    path('detail/<int:pk>/', detail, name='detail'),
+]
+```
+# Templates templates/store login, signup
 ```html
 {% extends 'store/base.html' %}
 
-{% block title %}Login | {% endblock %}
+{% block title %}Login| {% endblock %}
 
 {% block content %}
+
 <div class="row p-4">
     <div class="col-6 bg-light p-4">
-        <h4 class="mb-6 text-center">Login</h4>
+        <h4 class="mb-6 text-center">Registro</h4>
         <hr>
         <form action="." method="POST">
             {% csrf_token %}
             <div class="form-floating mb-3">
                 <h6>Username:</h6>
-                {{ form.username }}
+                {{form.username}}
             </div>
- 
             <div class="form-floating mb-3">
                 <h6>Password:</h6>
-                {{ form.password }}
+                {{form.password}}
             </div>
-
-            {% if form.errors or form.non_field_errors %}
-                <div class="mb-4 p-6 bg-danger">
-                    {% for field in form %}
-                        {{fiels.errors}}
-                    {% endfor %}
-
-                    {{ form.non_field_errors }}
-                </div>
-            {% endif %}
-            <button class="btn btn-primary mb-6">Login</button>
-
         </form>
     </div>
+    {% if form.errors or form.non_field_errors %}
+    <div class="mb-4 p-6 bg-danger">
+        {% for field in form %}
+            fiels.errors
+        {% endfor %}
+        {{ form.non_field_errors }}
+    </div>
+    {% endif %}
 </div>
+<button class="btn btn-primary mb-6">Login</button>
+
+
 {% endblock %}
 ```
 ```html
 {% extends 'store/base.html' %}
 
-{% block title %}Registro | {% endblock %}
+{% block title %}Registro| {% endblock %}
 
 {% block content %}
 <div class="row p-4">
@@ -167,51 +178,33 @@ def register(request):
             {% csrf_token %}
             <div class="form-floating mb-3">
                 <h6>Username:</h6>
-                {{ form.username }}
+                {{form.username}}
             </div>
             <div class="form-floating mb-3">
                 <h6>Email:</h6>
-                {{ form.email }}
+                {{form.email}}
             </div>
             <div class="form-floating mb-3">
                 <h6>Password:</h6>
-                {{ form.password1 }}
+                {{form.password1}}
             </div>
             <div class="form-floating mb-3">
                 <h6>Repite Password:</h6>
-                {{ form.password2 }}
+                {{form.password2}}
             </div>
 
             {% if form.errors or form.non_field_errors %}
                 <div class="mb-4 p-6 bg-danger">
                     {% for field in form %}
-                        {{fiels.errors}}
+                        fields.errors
                     {% endfor %}
-
                     {{ form.non_field_errors }}
                 </div>
             {% endif %}
-            <button class="btn btn-primary mb-6">Register</button>
 
+            <button class="btn btn-primary mb-6">Register</button>
         </form>
     </div>
 </div>
 {% endblock %}
-```
-
-# Rutas en URL's para login y registro de usuarios
-```python
-from django.urls import path
-from django.contrib.auth import views as auth_views
-
-from .views import contact, detail, register
-
-from .forms import LoginForm
-
-urlpatterns = [
-    path('contact/', contact, name='contact'),
-    path('register/', register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='store/login.html', authentication_form=LoginForm), name='login'),
-    path('detail/<int:pk>/', detail, name='detail'),
-]
 ```
