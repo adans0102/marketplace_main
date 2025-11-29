@@ -106,20 +106,16 @@ ___5.Folder template\store:___ Esta carpeta contiene los archivos HTML que se mu
 
 ### **Explicación de los archivos nuevos**
 
-___1.Forms.py (LoginForm, SignupForm, NewItemForm)___
-
-Este archivo se encarga de crear formularios personalizados que se usarán en la 
+___1.Forms.py (LoginForm, SignupForm, NewItemForm): ___ Este archivo se encarga de crear formularios personalizados que se usarán en la 
 aplicación Django. Los formularios sirven para recibir datos del usuario, validarlos y enviarlos a las vistas o modelos. 
 
 LoginForm: Personaliza el login de Django con campos de texto y contraseñas estilizados.
 
-
 SignupForm: Crea nuevos usuarios con validación de contraseñas y campos bien  presentados.
-
 
 NewItemForm: Permite añadir nuevos productos al marketplace, con campos bien  organizados  y estilizados para una mejor experiencia.
 
-___2.Views.py (login(), logout_user(), detail(), add_item())___
+___2.Views.py (login(), logout_user(), detail(), add_item()):___
 En login(), el usuario ingresa sus datos y, si son correctos, se inicia su sesión.
 
 logout_user() cierra la sesión y lo redirige.
@@ -128,16 +124,14 @@ detail() muestra la información completa de un producto según su ID.
 
 add_item() muestra un formulario para crear un producto y lo guarda cuando es  válido.
 
-___3.Explicar decorador @login_required___
+___3.Explicar decorador @login_required:___
 El decorador @login_required se usa en Django para proteger una vista y permitir que solo los usuarios que han iniciado sesión puedan acceder a ella.
 Si no lo está, Django lo manda automáticamente a la página de login.
 
-__4.Urls.py__ (Las rutas a cada acción nueva en views)
-En urls.py se añadieron las rutas que permiten acceder a cada una de las acciones creadas en views. Aquí se definen las URL que el usuario puede visitar y la vista que se ejecutará cuando lo haga.
+__4.Urls.py (Las rutas a cada acción nueva en views):___ En urls.py se añadieron las rutas que permiten acceder a cada una de las acciones creadas en views. Aquí se definen las URL que el usuario puede visitar y la vista que se ejecutará cuando lo haga.
 Se agregó una ruta para login, que apunta a la vista encargada de iniciar sesión; otra para logout, que cierra la sesión del usuario; una ruta dinámica para detail, que recibe el ID del producto y muestra toda su información; y finalmente la ruta add_item, donde el usuario puede añadir un nuevo producto mediante el formulario.
 
-___5.store/templates (item.html, login.html, signup.html, navigation.html, form.html)___
-En la carpeta de templates se crearon las páginas que muestran al usuario la información del marketplace.
+___5.store/templates (item.html, login.html, signup.html, navigation.html, form.html):___ En la carpeta de templates se crearon las páginas que muestran al usuario la información del marketplace.
 El archivo item.html se encargó de mostrar todos los detalles de un producto: su nombre, imagen, descripción y precio. Es la página que aparece cuando el usuario entra al detalle de un ítem.
 En login.html y signup.html se diseñaron las pantallas donde el usuario puede iniciar sesión o crear una cuenta. Estas páginas muestran los formularios correspondientes y están estilizadas para que el proceso sea simple y claro.
 El archivo navigation.html contiene el menú de navegación que aparece en la parte superior del sitio. Desde aquí el usuario puede moverse entre las distintas secciones, como inicio, login, logout o añadir un producto.
@@ -147,7 +141,7 @@ Por último, form.html sirve como plantilla genérica para mostrar formularios, 
 
 # Códigos
 ___1. Settings.py:___
-"""
+```"""
 Django settings for marketplace_main project.
 
 
@@ -308,7 +302,7 @@ MEDIA_ROOT= BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'```
 
 ___2.Urls.py:___
 from django.contrib import admin
