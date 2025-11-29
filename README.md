@@ -77,7 +77,7 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 **git push:** Con git push enviamos nuestros commits al repositorio remoto, para que los cambios queden reflejados en la nube y puedan ser vistos o usados por otros.
 ---
 #Arquitectura MVT Django
-![Texto alternativo](https://photos.google.com/archive/photo/AF1QipNUCJfbHGuZ7hMF63-9ZKQAjDE5Ei_ksy9qYRro)
+![Texto alternativo](https://photos.google.com/album/AF1QipPt7dkI7cpF1wol2guFCE8U-PNiWe3RhRSLQz4K/photo/AF1QipNspUPmPKejhTZkXtvm1UxpuKRHQJw3PL06HG3n)
 
 ```bash
 cd Documents
