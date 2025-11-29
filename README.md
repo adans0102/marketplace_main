@@ -422,8 +422,10 @@ ___Código base.html:___
 
 </body>
 </html>
+```
 
 ___Código home.html:___
+```
 {% extends 'store/base.html' %}
 
 
