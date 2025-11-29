@@ -33,7 +33,7 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 ---
 
 # Comandos
-vCD Documents:** Principalmente, este comando que utilizamos al comenzar nuestro proyecto sirve para indicar la ruta donde se guardará el proyecto.
+**CD Documents:** Principalmente, este comando que utilizamos al comenzar nuestro proyecto sirve para indicar la ruta donde se guardará el proyecto.
 
 **MD:** MD sirve para crear una carpeta, la carpeta la puedes utilizar para lo que desees, pero una vez de haberla creado y querer entrar en ella tienes que hacer un cd nombre_de_carpeta.
 
@@ -64,7 +64,7 @@ vCD Documents:** Principalmente, este comando que utilizamos al comenzar nuestro
 -Usar tú mismo más adelante, si necesitas volver a instalar todo desde cero.
 -Compartir con otras personas, para que puedan tener las mismas librerías en su entorno virtual.
 
-## **Comandos nuevos**
+### **Comandos nuevos**
 
 **git clone :** Copiamos un repositorio remoto a nuestra computadora, creando una carpeta con todo el proyecto y su historial de cambios. Ejemplo: git clone https://github.com/usuario/proyecto.git
 
