@@ -74,7 +74,8 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 
 **git commit -m:** Hacemos git commit -m "mensaje", que guarda esos cambios en el historial de Git con un mensaje que explique lo que hicimos.
 
-**git push:** Con git push enviamos nuestros commits al repositorio remoto, para que los cambios queden reflejados en la nube y puedan ser vistos o usados por otros.
+**git push:** git push: Con git push enviamos nuestros commits al repositorio remoto, para que los cambios queden reflejados en la nube y puedan ser vistos o usados por otros.
+
 ---
 #Arquitectura MVT Django
 ![mtv](https://photos.google.com/album/AF1QipPt7dkI7cpF1wol2guFCE8U-PNiWe3RhRSLQz4K)
