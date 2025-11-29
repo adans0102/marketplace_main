@@ -1,210 +1,46 @@
-# Nombre del poryecto Markeplace
+# Documentación del Proyecto: Marketplace_Main
 
-# SignUp y Login en Forms.py
-```python
-from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
+## Integrantes  
+- Gamboa Cordova Jorge Dennis  
+- Lejeune Alaniz Katheryne  
+- Moreno Morales Adolfo  
+- Villegas De La Cruz Aemee  
 
-from .models import Item
+---
 
-class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Tu usuario',
-            'class': 'form-control'
-        }
-    ))
+# Índice  
+1. [Introducción](#introducción)  
+2. [Comandos](#comandos)  
+3. [Arquitectura MVT Django](#arquitectura-mvt-django)  
+4. [Explicación de los archivos](#explicación-de-los-archivos)  
+5. [Códigos](#códigos)  
+6. [Ejecución del proyecto](#ejecución-de-lo-que-va-del-proyecto)  
+7. [Conclusión](#conclusión)  
 
-    password = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'placeholder': 'password',
-            'class': 'form-control'
-        }
-    ))
+---
 
-class SignupForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
+# Introducción  
 
-    username = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Tu Usuario',
-            'class': 'form-control'
-        }
-    ))
+## ¿Por qué utilizar Django para desarrollar aplicaciones web?
 
-    email = forms.CharField(widget=forms.EmailInput(
-        attrs={
-            'placeholder': 'Tu Email',
-            'class': 'form-control'
-        }
-    ))
+Django es un framework basado en Python que permite crear aplicaciones web de manera rápida, segura y eficiente. Destaca por su estructura organizada, su lenguaje sencillo y sus comandos prácticos que facilitan mantener un código limpio.
 
-    password1 = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'placeholder': 'Password',
-            'class': 'form-control'
-        }
-    ))
+Entre sus mayores beneficios destacan:
 
-    password2 = forms.CharField(widget=forms.PasswordInput(
-        attrs={
-            'placeholder': 'Repite Password',
-            'class': 'form-control'
-        }
-    ))
-``` 
+- Autenticación integrada  
+- Panel de administración automático  
+- Gestión eficiente de bases de datos  
+- Uso de plantillas HTML para generar contenido dinámico  
 
-# Funciones en views.py
-```python
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import logout
+Django permite crear desde proyectos pequeños hasta plataformas complejas gracias a su velocidad, seguridad y escalabilidad.
 
-from .models import Item, Category
+Las modificaciones realizadas durante el desarrollo demostraron cómo Django facilita un flujo de trabajo claro que integra lógica del servidor, plantillas, vistas, formularios y rutas de forma ordenada.
 
-from .forms import SignupForm
+---
 
-# Create your views here.
-def home(request):
-    items = Item.objects.filter(is_sold=False)
-    categories = Category.objects.all()
+# Comandos
 
-    context = {
-        'items': items,
-        'categories': categories
-    }
-    return render(request, 'store/home.html', context)
+## Comandos principales
 
-def contact(request):
-    context = {
-        'msg': 'Quieres otros productos contactame!'
-    }
-
-    return render(request, 'store/contact.html', context)
-
-def detail(request, pk):
-    item = get_object_or_404(Item, pk=pk)
-    related_items = Item.objects.filter(category=item.category, is_sold=False).exclude(pk=pk)[0:3]
-    context={
-        'item': item,
-        'related_items': related_items
-    }
-
-    return render(request, 'store/item.html', context)
-
-def register(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = SignupForm()
-
-    context = {
-        'form': form
-    }
-
-    return render(request, 'store/signup.html', context)
-```
-
-# Login, Register urls.py
-```python
-from django.urls import path
-from django.contrib.auth import views as auth_views
-from .views import contact, detail, register
-
-from .forms import LoginForm
-
-urlpatterns = [
-    path('contact/', contact, name='contact'),
-    path('register/', register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='store/login.html', authentication_form=LoginForm)),
-    path('detail/<int:pk>/', detail, name='detail'),
-]
-```
-# Templates templates/store login, signup
-```html
-{% extends 'store/base.html' %}
-
-{% block title %}Login| {% endblock %}
-
-{% block content %}
-
-<div class="row p-4">
-    <div class="col-6 bg-light p-4">
-        <h4 class="mb-6 text-center">Registro</h4>
-        <hr>
-        <form action="." method="POST">
-            {% csrf_token %}
-            <div class="form-floating mb-3">
-                <h6>Username:</h6>
-                {{form.username}}
-            </div>
-            <div class="form-floating mb-3">
-                <h6>Password:</h6>
-                {{form.password}}
-            </div>
-        </form>
-    </div>
-    {% if form.errors or form.non_field_errors %}
-    <div class="mb-4 p-6 bg-danger">
-        {% for field in form %}
-            fiels.errors
-        {% endfor %}
-        {{ form.non_field_errors }}
-    </div>
-    {% endif %}
-</div>
-<button class="btn btn-primary mb-6">Login</button>
-
-
-{% endblock %}
-```
-```html
-{% extends 'store/base.html' %}
-
-{% block title %}Registro| {% endblock %}
-
-{% block content %}
-<div class="row p-4">
-    <div class="col-6 bg-light p-4">
-        <h4 class="mb-6 text-center">Registro</h4>
-        <hr>
-        <form action="." method="POST">
-            {% csrf_token %}
-            <div class="form-floating mb-3">
-                <h6>Username:</h6>
-                {{form.username}}
-            </div>
-            <div class="form-floating mb-3">
-                <h6>Email:</h6>
-                {{form.email}}
-            </div>
-            <div class="form-floating mb-3">
-                <h6>Password:</h6>
-                {{form.password1}}
-            </div>
-            <div class="form-floating mb-3">
-                <h6>Repite Password:</h6>
-                {{form.password2}}
-            </div>
-
-            {% if form.errors or form.non_field_errors %}
-                <div class="mb-4 p-6 bg-danger">
-                    {% for field in form %}
-                        fields.errors
-                    {% endfor %}
-                    {{ form.non_field_errors }}
-                </div>
-            {% endif %}
-
-            <button class="btn btn-primary mb-6">Register</button>
-        </form>
-    </div>
-</div>
-{% endblock %}
-```
+```bash
+cd Documents
