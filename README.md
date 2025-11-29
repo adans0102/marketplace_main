@@ -904,8 +904,8 @@ ___form.html___
 ### **Ejecución actualizada**
 
 ![foto2](https://drive.google.com/uc?export=view&id=1lIxapwXw1BZ7H9qOcsRydRI1tWLamJ_1)
-![foto3](https://drive.google.com/file/d/1GKb_SG667Pci-dVCySLGJdv9EUfi4eCP/view?usp=sharing)
-![foto4](https://drive.google.com/file/d/11IhE4DcMQkmNBTRgGMACR-g7dEZ2qst8/view?usp=sharing)
+![foto3](https://drive.google.com/uc?export=view&id=1GKb_SG667Pci-dVCySLGJdv9EUfi4eCP)
+![foto4](https://drive.google.com/uc?export=view&id=11IhE4DcMQkmNBTRgGMACR-g7dEZ2qst8)
 ![foto5](https://drive.google.com/uc?export=view&id=1-6GU3ISwH1FhDQzU749fygnL_3pbnEaz)
 ![foto6](https://drive.google.com/uc?export=view&id=1eWCbbHP18RSuQWal3-X3HplstbCsqtAt)
 ![foto7](https://drive.google.com/uc?export=view&id=1SyKBnRPLtcZUzLPV0U41sHzCWedMwRKG)
