@@ -85,6 +85,7 @@ El Modelo trabaja con la información, la Vista decide qué hacer con esa inform
 
 ### **Cómo está ligado forms.py, views.py, signup.html y urls.py en la aplicación**
 ![relacionentrelosarchivos](https://drive.google.com/uc?export=view&id=1eNGYATxhF-Kway4hqr0-I4RgagttnC6i)
+
 'store' del proyecto 'Marketplace _main'.**
 Cuando entramos a /signup urls.py activa la vista correspondiente en views.py haciendo que carga el formulario definido en forms.py y decide si mostrarlo vacío o procesarlo cuando lo envíamos a signup.html haciendo que despliegue el formulario permitiendo que ingresemos datos y al enviarlo la información regresa a views.py para ser validada y guardada finalmente todo el flujo permite que el usuario se registre correctamente en el sistema sin necesidad de escribir SQL y manteniendo la
 información organizada y segura
@@ -901,6 +902,7 @@ ___form.html___
 
 # Ejecución de lo que va del proyecto
 ![foto 1](https://drive.google.com/uc?export=view&id=1ejKmYitt0D9Tn0ha_ma33UFpGTvhQ9nk)
+
 ### **Ejecución actualizada**
 
 ![foto2](https://drive.google.com/uc?export=view&id=1lIxapwXw1BZ7H9qOcsRydRI1tWLamJ_1)
