@@ -90,23 +90,23 @@ información organizada y segura
 
 ---
 # Explicación de los archivos
-1.Settings.py: Este archivo es aquel que contiene toda la configuración de Django, en este se definen aspectos como:
+___1.Settings.py:___ Este archivo es aquel que contiene toda la configuración de Django, en este se definen aspectos como:
 Aplicaciones instaladas
 La base de datos que se usa 
 Rutas de archivos estáticos
 Configuración de idioma y zona horaria
 
-2.urls.py : Este archivo define las rutas (URLs) del sitio web, es decir, qué vista (página o función) se muestra cuando el usuario entra a una dirección específica.
+___2.urls.py :___ Este archivo define las rutas (URLs) del sitio web, es decir, qué vista (página o función) se muestra cuando el usuario entra a una dirección específica.
 
-3.models.py  : En este apartado se definen los modelos de datos, es decir, las tablas de la base de datos
+___3.models.py  :___ En este apartado se definen los modelos de datos, es decir, las tablas de la base de datos
 
-4.views.py : Aquí van las vistas, que son las funciones o clases que se ejecutan cuando un usuario visita una página.
+___4.views.py :___ Aquí van las vistas, que son las funciones o clases que se ejecutan cuando un usuario visita una página.
 
-5.Folder template\store: Esta carpeta contiene los archivos HTML que se muestran en el navegador , los archivos dentro de template se combinan con los datos que las vistas envían y forman las páginas que el usuario ve.
+___5.Folder template\store:___ Esta carpeta contiene los archivos HTML que se muestran en el navegador , los archivos dentro de template se combinan con los datos que las vistas envían y forman las páginas que el usuario ve.
 
 ### **Explicación de los archivos nuevos**
 
-_1.Forms.py_ (LoginForm, SignupForm, NewItemForm)
+___1.Forms.py (LoginForm, SignupForm, NewItemForm)___
 
 Este archivo se encarga de crear formularios personalizados que se usarán en la 
 aplicación Django. Los formularios sirven para recibir datos del usuario, validarlos y enviarlos a las vistas o modelos. 
@@ -119,7 +119,7 @@ SignupForm: Crea nuevos usuarios con validación de contraseñas y campos bien  
 
 NewItemForm: Permite añadir nuevos productos al marketplace, con campos bien  organizados  y estilizados para una mejor experiencia.
 
-___2.Views.py___ (login(), logout_user(), detail(), add_item())
+___2.Views.py (login(), logout_user(), detail(), add_item())___
 En login(), el usuario ingresa sus datos y, si son correctos, se inicia su sesión.
 
 logout_user() cierra la sesión y lo redirige.
@@ -128,15 +128,15 @@ detail() muestra la información completa de un producto según su ID.
 
 add_item() muestra un formulario para crear un producto y lo guarda cuando es  válido.
 
-_3.Explicar decorador @login_required_
+___3.Explicar decorador @login_required___
 El decorador @login_required se usa en Django para proteger una vista y permitir que solo los usuarios que han iniciado sesión puedan acceder a ella.
 Si no lo está, Django lo manda automáticamente a la página de login.
 
-_4.Urls.py_ (Las rutas a cada acción nueva en views)
+___4.Urls.py__ (Las rutas a cada acción nueva en views)
 En urls.py se añadieron las rutas que permiten acceder a cada una de las acciones creadas en views. Aquí se definen las URL que el usuario puede visitar y la vista que se ejecutará cuando lo haga.
 Se agregó una ruta para login, que apunta a la vista encargada de iniciar sesión; otra para logout, que cierra la sesión del usuario; una ruta dinámica para detail, que recibe el ID del producto y muestra toda su información; y finalmente la ruta add_item, donde el usuario puede añadir un nuevo producto mediante el formulario.
 
-_5.store/templates (item.html, login.html, signup.html, navigation.html, form.html)_
+___5.store/templates (item.html, login.html, signup.html, navigation.html, form.html)___
 En la carpeta de templates se crearon las páginas que muestran al usuario la información del marketplace.
 El archivo item.html se encargó de mostrar todos los detalles de un producto: su nombre, imagen, descripción y precio. Es la página que aparece cuando el usuario entra al detalle de un ítem.
 En login.html y signup.html se diseñaron las pantallas donde el usuario puede iniciar sesión o crear una cuenta. Estas páginas muestran los formularios correspondientes y están estilizadas para que el proceso sea simple y claro.
