@@ -141,7 +141,8 @@ Por último, form.html sirve como plantilla genérica para mostrar formularios, 
 
 # Códigos
 ___1. Settings.py:___
-```"""
+```
+"""
 Django settings for marketplace_main project.
 
 
@@ -302,16 +303,20 @@ MEDIA_ROOT= BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'```
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+```
 
 ___2.Urls.py:___
+```
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from store.views import home
+```
 
 ___3.Models.py:___
+```
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -357,8 +362,10 @@ urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+```
 
 ___4.views.py:___
+```
 from django.shortcuts import render
 from .models import Item, Category
 from django.shortcuts import get_object_or_404
@@ -379,9 +386,11 @@ def home (request):
         'categories': categories
     }
     return render(request, 'store/home.html', context)
+```
 
 **5.Templates\store:**
 ___Código base.html:___
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -448,10 +457,12 @@ ___Código home.html:___
     </div>
 </div>
 {% endblock %}
+```
 
 ### **Códigos nuevos**
 **1.Store:**
 ___Forms.py:___
+```
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -540,8 +551,10 @@ class NewItemForm(forms.ModelForm):
             )  
                 
         }
+```
 
 ___Views.py:___ 
+```
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -621,8 +634,10 @@ def add_item(request):
         }
 
  return render(request, 'store/form.html', context)
+```
 
 **@login_required:**
+```
 @login_required
 def add_item(request):
     if request.method == 'POST':
@@ -642,8 +657,10 @@ def add_item(request):
         }
 
     return render(request, 'store/form.html', context)
+```
 
 ___Urls.py:___
+```
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
@@ -659,9 +676,11 @@ urlpatterns = [
     path('add_item/', add_item, name='add_item'),
     path('detail/<int:pk>/', detail, name='detail'),
 ]
+```
 
 **2.store/templates:**
 ___item.html___
+```
 {% extends 'store/base.html' %}
 
 {% block title %}{{item.name}} | {% endblock %}
@@ -691,8 +710,10 @@ ___item.html___
     </div>
 </div>
 {% endblock %}
+```
 
  ___login.html___
+ ```
 {% extends 'store/base.html' %}
 
 {% block title %}Login| {% endblock %}
@@ -736,8 +757,10 @@ ___item.html___
 
 
 {% endblock %}
+```
 
 ___signup.html___
+```
 {% extends 'store/base.html' %}
 
 {% block title %}Registro| {% endblock %}
@@ -788,8 +811,10 @@ ___signup.html___
     </div>
 </div>
 {% endblock %}s
+```
 
 ___navigation.html___
+```
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
         <a href="{% url 'home' %}" class="navbar-brand">Marketplace</a>
@@ -833,8 +858,10 @@ ___navigation.html___
         </div>
     </div>
 </nav>
+```
 
 ___form.html___
+```
 {% extends 'store/base.html' %}
 
 {% block title %}{{ title }} | {% endblock %}
@@ -865,6 +892,7 @@ ___form.html___
     </button>
 </form>
 {% endblock %}
+```
 
 ---
 
