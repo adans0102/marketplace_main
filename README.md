@@ -909,7 +909,7 @@ ___form.html___
 ![foto5](https://drive.google.com/uc?export=view&id=1-6GU3ISwH1FhDQzU749fygnL_3pbnEaz)
 ![foto6](https://drive.google.com/uc?export=view&id=1eWCbbHP18RSuQWal3-X3HplstbCsqtAt)
 ![foto7](https://drive.google.com/uc?export=view&id=1SyKBnRPLtcZUzLPV0U41sHzCWedMwRKG)
-![foto8](URL)
+![foto8](https://drive.google.com/uc?export=view&id=1rcsHFa3pM2PF4XqTaMOPfw0RTfHsocYY)
 
 ---
 
