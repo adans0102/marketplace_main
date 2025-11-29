@@ -79,11 +79,12 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 ---
 
 # Arquitectura MVT Django
-![mtv](https://photos.fife.usercontent.google.com/pw/AP1GczN8Nl-MmfkFRvjwP6cBF-nIZzOVYEZUjLoFgSPcFrikY4l16Ulrn6Wx=w1024-h768-s-no-gm?authuser=0)
+![MTV](URL)
 Django separa el manejo de datos, la lógica y la presentación en tres partes:
 El Modelo trabaja con la información, la Vista decide qué hacer con esa información y la Template (plantilla) se encarga de mostrarla al usuario. Así todo está organizado y es más fácil mantener el proyecto.
 
 ### **Cómo está ligado forms.py, views.py, signup.html y urls.py en la aplicación**
+![relacionentrelosarchivos](URL)
 'store' del proyecto 'Marketplace _main'.**
 Cuando entramos a /signup urls.py activa la vista correspondiente en views.py haciendo que carga el formulario definido en forms.py y decide si mostrarlo vacío o procesarlo cuando lo envíamos a signup.html haciendo que despliegue el formulario permitiendo que ingresemos datos y al enviarlo la información regresa a views.py para ser validada y guardada finalmente todo el flujo permite que el usuario se registre correctamente en el sistema sin necesidad de escribir SQL y manteniendo la
 información organizada y segura
@@ -899,6 +900,16 @@ ___form.html___
 ---
 
 # Ejecución de lo que va del proyecto
+![foto 1](URL)
+### **Ejecución actualizada**
+
+![foto2](URL)
+![foto3](URL)
+![foto4](URL)
+![foto5](URL)
+![foto6](URL)
+![foto7](URL)
+![foto8](URL)
 
 ---
 
