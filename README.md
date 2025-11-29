@@ -79,7 +79,7 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 ---
 
 # Arquitectura MVT Django
-![MTV](https://drive.google.com/file/d/1M3KJGMKy2ko25Gwp6x_DMg7hEdP7UmAZ/view?usp=sharing)
+![MTV](https://drive.google.com/uc?export=view&id=1M3KJGMKy2ko25Gwp6x_DMg7hEdP7UmAZ)
 Django separa el manejo de datos, la lógica y la presentación en tres partes:
 El Modelo trabaja con la información, la Vista decide qué hacer con esa información y la Template (plantilla) se encarga de mostrarla al usuario. Así todo está organizado y es más fácil mantener el proyecto.
 
