@@ -79,6 +79,6 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 ---
 
 # Arquitectura MVT Django
-![mtv](https://imgur.com/a/oWcc2VY)
+![mtv](https://photos.fife.usercontent.google.com/pw/AP1GczN8Nl-MmfkFRvjwP6cBF-nIZzOVYEZUjLoFgSPcFrikY4l16Ulrn6Wx=w1024-h768-s-no-gm?authuser=0)
 
 ```bash
