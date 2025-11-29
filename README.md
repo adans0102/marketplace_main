@@ -83,7 +83,7 @@ En conjunto, estas modificaciones demuestran cómo Django permite desarrollar ap
 Django separa el manejo de datos, la lógica y la presentación en tres partes:
 El Modelo trabaja con la información, la Vista decide qué hacer con esa información y la Template (plantilla) se encarga de mostrarla al usuario. Así todo está organizado y es más fácil mantener el proyecto.
 
-### **Cómo está ligado forms.py, views.py, signup.html y urls.py en la aplicación
+### **Cómo está ligado forms.py, views.py, signup.html y urls.py en la aplicación**
 'store' del proyecto 'Marketplace _main'.**
 Cuando entramos a /signup urls.py activa la vista correspondiente en views.py haciendo que carga el formulario definido en forms.py y decide si mostrarlo vacío o procesarlo cuando lo envíamos a signup.html haciendo que despliegue el formulario permitiendo que ingresemos datos y al enviarlo la información regresa a views.py para ser validada y guardada finalmente todo el flujo permite que el usuario se registre correctamente en el sistema sin necesidad de escribir SQL y manteniendo la
 información organizada y segura
@@ -119,7 +119,7 @@ SignupForm: Crea nuevos usuarios con validación de contraseñas y campos bien  
 
 NewItemForm: Permite añadir nuevos productos al marketplace, con campos bien  organizados  y estilizados para una mejor experiencia.
 
-_2.Views.py_ (login(), logout_user(), detail(), add_item())
+___2.Views.py___ (login(), logout_user(), detail(), add_item())
 En login(), el usuario ingresa sus datos y, si son correctos, se inicia su sesión.
 
 logout_user() cierra la sesión y lo redirige.
