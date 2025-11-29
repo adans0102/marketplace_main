@@ -4,7 +4,8 @@
 - Gamboa Cordova Jorge Dennis  
 - Lejeune Alaniz Katheryne  
 - Moreno Morales Adolfo  
-- Villegas De La Cruz Aemee  
+- Villegas De La Cruz Aemee
+- Sánchez Sánchez Aylin Daniela
 
 ---
 
